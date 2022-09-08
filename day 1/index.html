@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Js 3 Learning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="app">
+                    <h1>Welcome to {{ tutorialiInfo.name }}</h1>
+                    <p>Check our source code at
+                        <a :href=tutorialiInfo.githubLink>Github</a>
+                    </p>
+
+                    <p v-html="tutorialiInfo.htmlCode"></p>
+                    <h5>Time: {{ getCurrentTime() }}</h5>
+                    <h4>Counter: {{ count1 }}</h4>
+                    <h4>Counter: {{ count2 }}</h4>
+                    <button class="btn btn-primary" @click="increase(1)">Increase</button>
+                    <button class="btn btn-primary ms-3" @click="decrease(1)">Decrease</button>
+                    <br>
+                    <br>
+                    <button class="btn btn-primary" @click="increase(2)">Increase</button>
+                    <button class="btn btn-primary ms-3" @click="decrease(2)">Decrease</button>
+                    <hr>
+                    <button class="btn btn-primary ms-3" @click="test($event)">Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

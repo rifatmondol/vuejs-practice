@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="app">
+                    <!-- Event modifier-->
+                    <h2>Event modifier</h2>
+                    <div class="card" @click="handleCardClicked">
+                        <button @click.stop="handleViewClicked">View</button>
+                    </div>
+                    <br><br>
+                    <form action="#">
+                        <input type="text" @keyup="handlekeyup">
+                        <h4>Welcome {{ name }}!</h4>
+                        <button type="submit" @click.prevent="handleFormClick">Ok</button>
+                    </form>
+                    <hr>
+                    <!-- Two way binding and modifier-->
+                    <h2>Two way binding and modifier</h2>
+                    <form action="#">
+                        <h3>Enter a number</h3>
+                        <input type="text" v-model.number="number">
+                        <br>
+                        <br>
+                        <button @click="getDouble">Get Double</button>
+                        <button @click="getSquare">Get Square</button>
+                        <button @click="addTwenty">Add 20</button>
+                        <button @click="reset">Reset</button>
+                        <hr>
+                        <label>Entered Number: {{ number }}</label>
+                        <br>
+                        <label>Result: {{result}}</label>
+                    </form>
+                    <hr>
+                    <!-- Class binding & attribute binding-->
+                    <h2>Class binding & attribute binding</h2>
+                    <button :class="{active: activeClass == 'red'}" @click="setClass('red')">Red</button>
+                    <button :class="{active: activeClass == 'blue'}" @click="setClass('blue')">Blue</button>
+                    <button :class="{active: activeClass == 'green'}" @click="setClass('green')">Green</button>
+                    <button :class="['active']">Always active</button>
+                    <br><br>
+                    <div :class="activeClass"></div>
+                    <br><br>
+
+                    <!-- Style binding -->
+                    <h2>Style binding</h2>
+                    <input type="text" v-model="bgColor"><br><br>
+                    <input type="text" v-model="textColor">
+                    <input type="color" v-model="bgColor">
+                    <br><br>
+                    <!-- <div class="card" :style="'background-color:' + bgColor">
+                        card
+                    </div> 
+                    <div class="card" :style="{'background-color': bgColor}">
+                        card
+                    </div> -->
+                    <div class="card" :style="{backgroundColor: bgColor, color: textColor}">
+                        card
+                    </div>
+
+                    <!-- List rendering -->
+                    <h2>List rendering</h2>
+                    <input type="text" v-model="newSkill.name">
+                    <button @click="addSkill">Add</button>
+                    <ul>
+                        <li v-for="(skill, i) in skills" @click="removeSkill(i)">
+                            {{i+1}}. {{ skill.name }} ({{ skill.experience}})
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
