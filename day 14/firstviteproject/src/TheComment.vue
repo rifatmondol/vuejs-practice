@@ -29,7 +29,7 @@ export default {
     },
     inheritAttrs: false,
     created() {
-        console.log(this.$attrs)
+        // console.log(this.$attrs)
     },
     methods: {
         handleInput(e) {
@@ -40,6 +40,7 @@ export default {
             console.log(e.target.value)
         }
     },
+    
 }
 </script>
 

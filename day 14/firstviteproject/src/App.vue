@@ -32,11 +32,28 @@ export default {
             myComment: ""
         }
     },
-    
-    methods: {},
     components: {
         TheComment
+    },
+    methods: {},
+    beforeCreate() {
+        console.log("beforeCreate");
+        console.log(this.msg)
+    },
+    created() {
+        console.log("created");
+        console.log(this.msg)
+    },
+    beforeMount() {
+        console.log("beforeMount");
+        console.log(this.msg)
+    },
+    mounted() {
+        console.log("mounted");
+        console.log(this.msg)
     }
+
+    
 }
 
 </script>
